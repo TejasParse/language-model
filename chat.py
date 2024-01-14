@@ -191,6 +191,9 @@ while input1!="exit":
     print("\nEnter the prompt ('exit': to exit chat): ")
     input1 = input()
 
+    if(input1=="exit"):
+        break
+
     tp1 = encode(input1)
     context = torch.LongTensor([tp1]).to(device)
     generated_chars = decode(model.generate(context, max_new_tokens=250)[0].tolist())
